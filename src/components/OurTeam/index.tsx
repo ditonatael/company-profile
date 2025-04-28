@@ -1,28 +1,11 @@
-"use client";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Loading from "../Loading";
-
 export default function OurTeam() {
-  const [teams, setTeams] = useState<null | any[]>(null);
-  const [loading, setLoading] = useState(true);
-
-  const handleGetTeams = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/team");
-      setTeams(res.data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    handleGetTeams();
-  }, []);
-  return loading ? (
-    <Loading />
-  ) : (
+  const teams = [
+    { name: "Sarah Johnson", position: "CEO" },
+    { name: "Michael Chen", position: "COO" },
+    { name: "David Miller", position: "Head Roaster" },
+    { name: "Emma Rodriguez", position: "Quality Director" },
+  ];
+  return (
     <div className="container mx-auto py-20 px-4 flex flex-col items-center gap-4">
       <div className="flex text-center">
         <h2 className="text-3xl font-semibold">Our Leadership Team</h2>
