@@ -2,8 +2,8 @@
 
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Loading from "../Loading";
 import ProductCard from "../ProductCard";
+import SkeletonCard from "../SkeletonCard";
 
 export default function ProductList() {
   const [products, setProducts] = useState<null | any[]>(null);
@@ -23,7 +23,7 @@ export default function ProductList() {
     handleGetProducts();
   }, []);
   return loading ? (
-    <Loading />
+    <SkeletonCard />
   ) : (
     <div className="bg-white py-10">
       <div className="container mx-auto px-4">
