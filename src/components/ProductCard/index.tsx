@@ -7,6 +7,7 @@ export default function ProductCard({ item }: any) {
       <div className="w-full h-64 relative">
         <Image
           fill
+          sizes="full"
           src={item.image}
           alt="coffee image"
           className="object-cover rounded-md"
